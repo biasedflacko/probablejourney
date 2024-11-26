@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSA Encryption</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<center>
+    <h1>RSA Algorithm</h1>
+    <h2>Implemented Using HTML & JavaScript</h2>
+    <hr>
+    <table>
+        <tr>
+            <td>Enter First Prime Number (p):</td>
+            <td><input type="number" value="53" id="p"></td>
+        </tr>
+        <tr>
+            <td>Enter Second Prime Number (q):</td>
+            <td><input type="number" value="59" id="q"></td>
+        </tr>
+        <tr>
+            <td>Enter the Message (Plaintext):<br>[A=1, B=2,...]</td>
+            <td><input type="number" value="89" id="msg"></td>
+        </tr>
+        <tr>
+            <td>Public Key (n):</td>
+            <td><p id="publickey"></p></td>
+        </tr>
+        <tr>
+            <td>Exponent (e):</td>
+            <td><p id="exponent"></p></td>
+        </tr>
+        <tr>
+            <td>Private Key (d):</td>
+            <td><p id="privatekey"></p></td>
+        </tr>
+        <tr>
+            <td>Cipher Text:</td>
+            <td><p id="ciphertext"></p></td>
+        </tr>
+        <tr>
+            <td>Decrypted Text:</td>
+            <td><p id="decryptedtext"></p></td>
+        </tr>
+        <tr>
+            <td><button onclick="RSA();">Apply RSA</button></td>
+        </tr>
+    </table>
+</center>
+<script type="text/javascript">
+// Function for modular exponentiation: (base^exp) % mod
+function modExp(base, exp, mod) {
+    let result = 1;
+    base = base % mod;
+    while (exp > 0) {
+        // If exp is odd, multiply base with result
+        if (exp % 2 == 1) {
+            result = (result * base) % mod;
+        }
+        // Divide exp by 2 and square the base
+        exp = Math.floor(exp / 2);
+        base = (base * base) % mod;
+    }
+    return result;
+}
+
+function RSA() {
+    // Input values
+    let p = parseInt(document.getElementById('p').value);
+    let q = parseInt(document.getElementById('q').value);
+    let no = parseInt(document.getElementById('msg').value);
+
+    // Compute n and phi(n)
+    let n = p * q;
+    let phi = (p - 1) * (q - 1);
+
+    // Find e (1 < e < phi) such that gcd(e, phi) = 1
+    let e = 2;
+    function gcd(a, b) { return b == 0 ? a : gcd(b, a % b); }
+    while (e < phi && gcd(e, phi) != 1) {
+        e++;
+    }
+
+    // Find d (modular multiplicative inverse of e mod phi)
+    let d = 0;
+    for (let i = 1; i < phi; i++) {
+        if ((e * i) % phi == 1) {
+            d = i;
+            break;
+        }
+    }
+
+    // Encryption: Ciphertext = (no^e) % n
+    let ciphertext = modExp(no, e, n);
+
+    // Decryption: DecryptedText = (ciphertext^d) % n
+    let decryptedText = modExp(ciphertext, d, n);
+
+    // Output results
+    document.getElementById('publickey').innerHTML = `(${n}, ${e})`;
+    document.getElementById('exponent').innerHTML = e;
+    document.getElementById('privatekey').innerHTML = d;
+    document.getElementById('ciphertext').innerHTML = ciphertext;
+    document.getElementById('decryptedtext').innerHTML = decryptedText;
+}
+</script>
+</body>
+</html>
