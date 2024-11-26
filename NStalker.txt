@@ -1,0 +1,69 @@
+### **AIM:**
+To download and explore the features of the **N-Stalker Vulnerability Assessment Tool**.
+
+### **What is N-Stalker?**
+- **N-Stalker** is a web application security scanner designed to assess the security of websites.
+- It uses a large database of 35,000 web attack signatures and includes well-known tools like **N-Stealth HTTP Security Scanner**.
+- It has both **free** and **paid** versions available for different levels of use.
+
+### **Steps to Explore N-Stalker:**
+
+#### 1. **Download and Install N-Stalker**:
+   - Visit the official website of N-Stalker: [www.nstalker.com](http://www.nstalker.com) and download the tool.
+   - Once downloaded, install N-Stalker on your **Windows** machine.
+     - Navigate to **Start > Programs > N-Stalker** to open the application.
+
+#### 2. **License Manager Update**:
+   - Before scanning a website, go to the **"License Manager"** tab.
+   - Update the license to ensure that N-Stalker is using the latest version of the signature database.
+   - Once updated, you will see a message indicating that it is **"up to date"**.
+
+#### 3. **Start a Scan**:
+   - In N-Stalker, enter the **host address** (i.e., the website URL or a range of IP addresses) that you want to scan.
+   - Click **"Start Scan"** to initiate the vulnerability assessment.
+
+#### 4. **View the Scan Report**:
+   - After the scan completes, N-Stalker will prompt you to generate a **report**.
+   - Select **HTML** format to generate a report that you can easily review.
+
+#### 5. **Scan Session Setup**:
+   - In the **Scan Session**, enter the **target URL** of the website you want to scan.
+   - Choose a **Scan Policy** from four options:
+     - **Manual Test**: Crawls the website and waits for manual attacks.
+     - **Full XSS Assessment**: Scans for Cross-Site Scripting vulnerabilities.
+     - **OWASP Policy**: Scans based on the OWASP Web Application Security Testing guidelines.
+     - **Web Server Infrastructure Analysis**: Focuses on vulnerabilities related to web server configurations.
+
+#### 6. **Optimize Settings**:
+   - After choosing the scan policy, click **"Optimize Settings"** to allow the tool to crawl the entire website for deeper analysis.
+
+#### 7. **Review Information**:
+   - In the **Review** option, you will get detailed information, such as:
+     - Host information (e.g., domain name, IP address).
+     - Technologies used by the website (e.g., web server, CMS).
+     - The scan policy used for the assessment.
+
+#### 8. **Start the Scan**:
+   - Once the scan session is set up and optimized, start the scan.
+   - N-Stalker will crawl the website and detect various issues, such as:
+     - **Broken Pages**: Pages that do not load properly.
+     - **Hidden Fields**: Sensitive data that may be exposed.
+     - **Information Leakage**: Sensitive information (e.g., server details) that may be exposed.
+     - **Web Forms**: Forms that could potentially be vulnerable to attacks.
+   - The tool will show detailed information, including the **severity level** of each vulnerability.
+
+#### 9. **Scan Results**:
+   - After the scan completes, N-Stalker will display:
+     - **Vulnerability Class**: What type of issue was found (e.g., XSS, SQL Injection).
+     - **Severity Level**: How serious the vulnerability is.
+     - **Reason for the Issue**: Why the identified issue is a problem.
+     - **Fix**: Recommended steps to mitigate or fix the vulnerability.
+     - **Vulnerable URLs**: Specific URLs where the vulnerabilities were found.
+
+---
+
+### **RESULT:**
+The **N-Stalker Vulnerability Assessment Tool** has been successfully downloaded, installed, and explored, and it has provided a detailed report on the vulnerabilities of the target website.
+
+### **Summary:**
+N-Stalker is a powerful web application security scanner that helps identify security vulnerabilities on websites. By following these steps, you can easily scan a website for vulnerabilities, analyze the findings, and take necessary actions to improve web security.
